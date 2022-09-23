@@ -1,10 +1,18 @@
-const removeFromArray = function(array, removed) {
-    for (const iterator of array) {
-        if (iterator === removed) {
-            array.splice(array.indexOf(removed), array.indexOf(removed)+1);
+const removeFromArray = function(array, ...theArguments) {
+    let filteredArray;
+    
+    const filtered = (item)=>{
+        for (const arg of theArguments) {
+            if( arg === item){
+                return false
+            }
         }
+        return item;
     }
-    return array;
+    
+    filteredArray = array.filter(filtered);
+    console.log(filteredArray);
+    return filteredArray;
 };
 
 // Do not edit below this line
